@@ -1,0 +1,22 @@
+# Local .terraform directories
+**/.terraform/*
+.terraform.lock.hcl
+
+state-files/*
+
+# State files
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Variable files with secrets
+terraform.tfvars
+*.auto.tfvars
+
+# Override files (if any)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+scripts/get_spot_price.sh
+scripts/deploy.sh
