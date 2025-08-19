@@ -7,16 +7,7 @@ resource "aws_instance" "w3_public_ec2" {
   vpc_security_group_ids      = [var.public_ec2_sg_id]
   key_name                    = var.key_name
   associate_public_ip_address = var.enable_public_ip
-  user_data                   = file("scripts/install_nginx.sh")
-
-  # Spot instance configuration
-  instance_market_options {
-    market_type = "spot"
-    spot_options {
-      max_price          = var.spot_max_price # Optional, can be omitted to use on-demand price
-      spot_instance_type = "one-time"
-    }
-  }
+  user_data                   = file("scripts/install_nginx.sh") 
 
   root_block_device {
     volume_size = var.aws_root_storage_size
@@ -40,14 +31,7 @@ resource "aws_instance" "w3_private_ec2" {
   key_name               = var.key_name
   user_data              = file("scripts/install_nginx.sh")
 
-  # Spot instance configuration
-  instance_market_options {
-    market_type = "spot"
-    spot_options {
-      max_price          = var.spot_max_price # Optional
-      spot_instance_type = "one-time"
-    }
-  }
+ 
 
   root_block_device {
     volume_size = var.aws_root_storage_size
