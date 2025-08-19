@@ -18,5 +18,5 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-scripts/get_spot_price.sh
+scripts/*
 scripts/deploy.sh
